@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background-color: #D9D9D9;
+  color: white;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+}
+
+.image-container h2 {
+  font-size: 24px;
+  font-style: italic;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.results-container {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.key-metrics-heading {
+  font-size: 24px;
+  color: #4CAF50;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.metrics-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.metrics-row p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+  width: 48%;
+  color: #333;
+}
+
+.histogram-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+.histogram-container img {
+  max-width: 100%;
+  height: auto;
+}

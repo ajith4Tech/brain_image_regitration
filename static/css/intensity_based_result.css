@@ -1,0 +1,86 @@
+/* result.css */
+
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styling */
+header {
+  background-color: #D9D9D9;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Container styling */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Flexbox layout for image frames */
+.image-frame {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Image container styling */
+.image-container {
+  width: 48%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.image-container h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+/* Image frame styling */
+.image-container img {
+  border: 5px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  height: auto;
+}
+
+/* Result text styling */
+.result {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+/* Styling for histogram images */
+img[alt="Histogram"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border: 5px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .image-frame {
+    flex-direction: column;
+  }
+
+  .image-container {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
