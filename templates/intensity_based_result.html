@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intensity Based Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/feature_based_result.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1>Intensity Based Registration Result</h1>
+  </header>
+
+  <div class="container">
+    <!-- First division: Input and Similar Images -->
+    <div class="image-frame">
+      <div class="image-container">
+        <h2>Input Image</h2>
+        <a href="{{ url_for('static', filename='images/input_image.png') }}" target="_blank">
+          <img src="{{ url_for('static', filename='images/input_image.png') }}" alt="Input Image">
+        </a>
+      </div>
+
+      <div class="image-container">
+        <h2>Similar Image</h2>
+        <a href="{{ url_for('static', filename='images/similar_image.png') }}" target="_blank">
+          <img src="{{ url_for('static', filename='images/similar_image.png') }}" alt="Similar Image">
+        </a>
+      </div>
+    </div>
+
+    <!-- Second division: Registered and Difference Images -->
+    <div class="image-frame">
+      <div class="image-container">
+        <h2>Registered Image</h2>
+        <a href="{{ url_for('static', filename='images/registered_image.png') }}" target="_blank">
+          <img src="{{ url_for('static', filename='images/registered_image.png') }}" alt="Registered Image">
+        </a>
+      </div>
+
+      <div class="image-container">
+        <h2>Difference Image</h2>
+        <a href="{{ url_for('static', filename='images/difference_image.png') }}" target="_blank">
+          <img src="{{ url_for('static', filename='images/difference_image.png') }}" alt="Difference Image">
+        </a>
+      </div>
+    </div>
+
+    <!-- Results section -->
+    <div class="results">
+      <h3>Key Metrics</h3>
+      <p>Similarity: {{ '%.2f' % results['similarity'] }}</p>
+      <p>MSE: {{ '%.2f' % results['mse'] }}</p>
+      <p>PSNR: {{ '%.2f' % results['psnr'] }}</p>
+      <p>SSIM: {{ '%.2f' % results['ssim'] }}</p>
+    </div>
+
+    <!-- Histogram section -->
+    <div class="histogram-section">
+      {% if results['plot_url'] %}
+      <img src="{{ results['plot_url'] }}" alt="Histogram">
+      {% endif %}
+
+      {% if image_url %}
+      <img src="{{ image_url }}" alt="Histogram">
+      {% endif %}
+    </div>
+  </div>
+</body>
+
+</html>

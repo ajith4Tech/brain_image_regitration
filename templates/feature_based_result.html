@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feature Based Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/feature_based_result.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1>Feature Based Registration Result</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- First row: Input and Similar images -->
+    <div class="row">
+      <div class="image-container">
+        <h2>Input Image</h2>
+        <a href="{{ url_for('static', filename='images/input_image.png') }}" target="_blank">
+          <img src="{{ url_for('static', filename='images/input_image.png') }}" alt="Input Image">
+        </a>
+      </div>
+
+      <div class="image-container">
+        <h2>Similar Image</h2>
+        <a href="{{ url_for('static', filename='images/similar_image.png') }}" target="_blank">
+          <img src="{{ url_for('static', filename='images/similar_image.png') }}" alt="Similar Image">
+        </a>
+      </div>
+    </div>
+
+    <!-- Second row: Matched and Aligned images -->
+    <div class="row">
+      <div class="image-container">
+        <h2>Matched Image</h2>
+        <a href="{{ url_for('static', filename='images/matched_image.png') }}" target="_blank">
+          <img src="{{ url_for('static', filename='images/matched_image.png') }}" alt="Matched Image">
+        </a>
+      </div>
+
+      <div class="image-container">
+        <h2>Aligned Image</h2>
+        <a href="{{ url_for('static', filename='images/aligned_image.png') }}" target="_blank">
+          <img src="{{ url_for('static', filename='images/aligned_image.png') }}" alt="Aligned Image">
+        </a>
+      </div>
+    </div>
+
+    <!-- Key Metrics section -->
+    <div class="results-container">
+      <h2 class="key-metrics-heading">Key Metrics</h2>
+      <div class="metrics-row">
+        <p>Similarity: <strong>{{ '%.2f' % results['similarity'] }}</strong></p>
+        <p>MSE: <strong>{{ '%.2f' % results['mse'] }}</strong></p>
+      </div>
+      <div class="metrics-row">
+        <p>PSNR: <strong>{{ '%.2f' % results['psnr'] }}</strong></p>
+        <p>SSIM: <strong>{{ '%.2f' % results['ssim'] }}</strong></p>
+      </div>
+      <div class="metrics-row">
+        <p>Matches Before: <strong>{{ results['num_matches_before'] }}</strong></p>
+        <p>Matches After: <strong>{{ results['num_matches_after'] }}</strong></p>
+      </div>
+    </div>
+
+    <!-- Histogram (if available) -->
+    {% if results['plot_url'] %}
+    <div class="histogram-container">
+      <img src="{{ results['plot_url'] }}" alt="Histogram">
+    </div>
+    {% endif %}
+
+  </div>
+</body>
+
+</html>

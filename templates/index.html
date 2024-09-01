@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Upload</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Upload a Brain CT Image</h1>
+  </header>
+  <div class="container">
+    <form method="POST" action="/image_registration" enctype="multipart/form-data">
+      <div>
+        <label for="fileUpload">Upload a PNG image:</label>
+        <input type="file" id="fileUpload" name="image" accept="image/png">
+      </div>
+      <div>
+        <input type="submit" name="submit_type" value="Intensity-Based">
+        <input type="submit" name="submit_type" value="Feature-Based">
+      </div>
+    </form>
+    <div id="preview"></div>
+  </div>
+  <script>
+    // Optionally handle previewing for file uploads
+    function previewImage(event) {
+      var reader = new FileReader();
+      reader.onload = function() {
+        var preview = document.getElementById('preview');
+        var image = new Image();
+        image.src = reader.result;
+        preview.innerHTML = '';
+        preview.appendChild(image);
+      }
+      reader.onerror = function() {
+        alert('Error reading file');
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+    document.getElementById('fileUpload').addEventListener('change', previewImage);
+    document.getElementById('cameraInput').addEventListener('change', previewImage);
+  </script>
+</body>
+</html>
